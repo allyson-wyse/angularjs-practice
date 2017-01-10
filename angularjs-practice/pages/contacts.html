@@ -29,11 +29,11 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a class="active" href="index.html">Home</a></li>
+						<li><a href="index.html">Home</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="contacts.html">Contacts</a></li>
+								<li><a class="active" href="contacts.html">Contacts</a></li>
 								<li><a href="gems.html">Gem Store</a></li>
 								<!--<li><a href="#">Something else here</a></li>
 								<li role="separator" class="divider"></li>
@@ -46,35 +46,28 @@
 		</nav>
 		
 		<div class="container">
-			<h1 class="text-center">Introduction</h1>
-			<br/>
-			<div class="row">
-				<div class="col-xs-6 col-md-4">
-					<img src="../static/images/person.png">
+			<div class="row" ng-controller="mainCtrl">
+				<h1 class="text-center">Contacts</h1>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<h3>Add New Contact</h3>
+					<form ng-submit="addNew(contact)">
+						<p>Name: <input type="text" ng-model="contact.name"></p>
+						<p>Email: <input type="text" ng-model="contact.email"></p>
+						<input type="submit" value="Add Contact"></input>
+					</form>
+					<br/>
 				</div>
-				<div class="col-xs-12 col-sm-6 col-md-8">
-					<p>Lorem ipsum dolor sit amet, mea id latine laboramus, ut viderer 
-					blandit est. Minim error eleifend no pro, ea tale diam quo, possit 
-					eloquentiam te mea. Per debet praesent gloriatur no, eu mea ipsum 
-					referrentur, no pro minim novum oblique. Vis te esse elit diceret, 
-					eu malorum eripuit dissentiet sea, eos ceteros neglegentur ad. Ad 
-					vix affert altera, cu doctus audire laoreet duo, no eos bonorum 
-					albucius pericula. Ius eligendi antiopam signiferumque no. Tibique 
-					percipit an vix, at timeam regione invidunt cum, audire pertinax 
-					voluptaria cu duo.</br>
-					Alii dicam te eam, nam pericula torquatos no, at semper persius eos. 
-					Ne pro quot modus persius, has nostro prompta imperdiet id. Mazim 
-					interpretaris ad nec. Oblique probatus laboramus ea his.</br>
-					Veniam cetero elaboraret duo an. Mea at novum equidem recusabo. 
-					Munere invenire platonem eos in, ne his eius tractatos sadipscing. 
-					Nam falli explicari ex. Vel no alii quaestio.</br>
-					Ei malis error omittantur vis, per audire tibique signiferumque ad, 
-					at dicam phaedrum sea. Quidam postulant posidonium an quo, an pri 
-					voluptua senserit definiebas. Cum assentior referrentur ne. Solet 
-					prompta in pri.</p>
+				<div class="col-xs-12 col-sm-8 col-md-8">
+					<div ng-repeat="contact in contacts">
+						<h4>{{contact.name}}</h4>
+						<p><strong>Email: </strong>{{contact.email}}</p>
+					</div>
 				</div>
 			</div>
+			</br></br>
 		</div>
+		
+		<script src="../static/js/contacts.js"></script>
 	</body>
 	
 </html>
