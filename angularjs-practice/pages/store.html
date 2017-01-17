@@ -51,7 +51,11 @@
 				<div ng-repeat="product in store.products" class="col-xs-12 col-sm-12 col-md-12 list-group-item">
 					<h2>{{product.name}}</h2>
 					<h4>{{product.price | currency}}</h4>
+					<img ng-src="{{product.images[0].full}}"/>
+					<br>
 					<img ng-src="{{product.images[0].thumb}}"/>
+					<img ng-src="{{product.images[1].thumb}}"/>
+					<img ng-src="{{product.images[2].thumb}}"/>
 					<br>
 					<section>
 						<ul class="nav nav-pills">

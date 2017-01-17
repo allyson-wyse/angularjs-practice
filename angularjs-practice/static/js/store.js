@@ -47,8 +47,14 @@
 		}
 	];
 	
-	app.controller('storeCtrl', function(){
-		this.products = items;  // "this" refers to the controller; creates attribute "product" on the controller
+	//app.controller('storeCtrl', function(){
+	//	this.products = items;  // "this" refers to the controller; creates attribute "product" on the controller
+	//});
+	
+	app.controller('storeCtrl', function($http) {
+    	$http.get("../static/products.php").then(function(response) {
+    		this.products = response.data.items;
+    	});
 	});
 	
 })();
